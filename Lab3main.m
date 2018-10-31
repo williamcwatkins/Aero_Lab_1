@@ -8,7 +8,7 @@ ATemp = Data(:,2);
 
 Voltage = Data(:,7);
 
-AvPressure = sum(APressure)/2500
+AvPressure = mean(APressure);
 %{
 Airspeed = AirSpeed();
 
