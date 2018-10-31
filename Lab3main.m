@@ -1,6 +1,6 @@
 % main stript
 
-Data = csvread('VelocityVoltage_S013_G03.csv',1,1);
+Data = csvread('VelocityVoltage_S013_G03.csv',1);
 
 APressure = Data(:,1);
 
