@@ -6,4 +6,10 @@ APressure = Data(:,1);
 
 AvPressure = sum(APressure)/2499
 
+Airspeed = AirSpeed();
 
+AirspeedModel = ASvsV();
+
+Uncertainty = ASUncertainty();
+
+Boundarylayer = BoundaryLayer();
