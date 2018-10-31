@@ -8,5 +8,5 @@ function [ASpeed,ASpeedAv]= AirSpeed(Data)
     gage_pressure = Data(:,3);
     %Keep the differential pressure in pascals
     ASpeed = sqrt(2.*gage_pressure)./(rho);
-    ASpeedAv = mean(ASpeed);
+    ASpeedAv = mean(peed);
 end

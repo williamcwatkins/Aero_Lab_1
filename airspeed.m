@@ -7,6 +7,6 @@ function [ASpeed,ASpeedAv]= AirSpeed(Data)
     rho = APressure./(R*Temp);
     gage_pressure = Data(:,3);
     %Keep the differential pressure in pascals
-    speed = sqrt(2.*gage_pressure)./(rho);
-    speed_av = mean(speed);
+    ASpeed = sqrt(2.*gage_pressure)./(rho);
+    ASpeedAv = mean(ASpeed);
 end

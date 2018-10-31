@@ -4,6 +4,8 @@ Data = csvread('VelocityVoltage_S013_G03.csv',1);
 
 APressure = Data(:,1);
 
+DPressure = Data(:,3);
+
 ATemp = Data(:,2);
 
 Voltage = Data(:,7);
