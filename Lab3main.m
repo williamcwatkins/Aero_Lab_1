@@ -5,7 +5,7 @@ Data = csvread('VelocityVoltage_S013_G03.csv',1);
 APressure = Data(:,1);
 
 DPressure = Data(:,3);
-AVDPressure = mean(DPressure);
+
 
 ATemp = Data(:,2);
 AvTemp = mean(ATemp);

@@ -13,7 +13,7 @@ function Unc = ASUncertainty(AvTemp, AvPressure, AVDPressure)
     dVdT = diff(V,T);
     dVdp = diff(V,p);
 
-    dV = sqrt((vpa(subs(dVdP,[P T p],[AVDPressure,AvTemp,AvPressure]))*dP)^2 ...
+    Unc = double(sqrt((vpa(subs(dVdP,[P T p],[AVDPressure,AvTemp,AvPressure]))*dP)^2 ...
         + (vpa(subs(dVdT,[P T p],[AVDPressure,AvTemp,AvPressure]))*dT)^2 ... 
-        + (vpa(subs(dVdp,[P T p],[AVDPressure,AvTemp,AvPressure]))*dp)^2);
+        + (vpa(subs(dVdp,[P T p],[AVDPressure,AvTemp,AvPressure]))*dp)^2));
 end
