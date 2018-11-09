@@ -1,5 +1,6 @@
+function [height] =  Calc_Boundary_Layer(data)
 %% Calulate Boundry Layer
-clear;clc;close all
+
 %Port Number 3
 %height recorded 0, 0.5, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5, and 
 %Center
@@ -32,28 +33,31 @@ for loop1 = 1:length(k_stop)
     end
     %Now use the data to calculate the air velocity at this height and save
     %it in matrix called wind speed pressure diff over the density times 2
-    [ASpeed,ASpeedAv]= AirSpeed_Boundary(level_data);
+    [~,ASpeedAv]= AirSpeed_Boundary(level_data);
+    %Hieght of ELD with +4mm to account for size of ELD.
     y_val=mean(level_data(:,6))+.4;
    file_data(loop1,:) = [y_val,ASpeedAv];
-    
 end
+%Seperating variables
 free_stream_v = file_data(end,2);
 boundary_v = free_stream_v*.95;
 ELD_height = file_data(1:end-1,1);
 ELD_v = file_data(1:end-1,2);
+% Calculating line of best fit and plotting the 
 hold on
-plot(ELD_v,ELD_height)
-p=polyfit(ELD_v,ELD_height,2);
-
-line([boundary_v,boundary_v],[0,10])
-x = 16:.1:28;
+line([0,10],[boundary_v,boundary_v])
+p=polyfit(ELD_height,ELD_v,2);
+x = 0:.1:10;
 f = p(1).*x.^2+p(2).*x+p(3);
 plot(x,f)
+plot(ELD_height,ELD_v)
+title("ELD Probe Height vs. Velocity")
+xlabel("ELD Height (mm)")
+ylabel("Velocity (m/s)")
 
-for h=1:length(f)-1
-   if x(h) < boundary_v && x(h+1)> boundary_v
-       height=h;
-   end
+p(3)= p(3)-boundary_v;
+boundary_ELD = sort(roots(p));
+line([boundary_ELD(1),boundary_ELD(1)],[0,30])
+
+height=boundary_ELD(1);
 end
-height=f(height);
-
