@@ -1,5 +1,5 @@
 function [height] =  Calc_Boundary_Layer(data)
-%% Calulate Boundry Layer
+%% Calulate Boundary Layer
 
 %Port Number 3
 %height recorded 0, 0.5, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5, and 
