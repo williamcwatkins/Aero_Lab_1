@@ -5,7 +5,7 @@
 
 Filenames = struct2cell( dir('2002_AeroLab1_WindTunnelData') );
 BFiles = Filenames(1,3:34)';
-VFiles = Filenames(1,35:end)';
+VFiles = Filenames(1,3:end)';
 
 k = 1;
 for i = 1:length(VFiles)
@@ -46,7 +46,7 @@ VData_V = abs(VData_V);
 hold on
 figure(1)
 
-AVM(VData_P,VData_V,speed,vspeed,PUnc,VUnc);
+AVM(VData_P(1:4000),VData_V(1:4000),speed(1:4000),vspeed(1:4000),PUnc(1:4000),VUnc(1:4000));
 
 figure(2)
 
