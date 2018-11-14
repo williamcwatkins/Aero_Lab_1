@@ -1,4 +1,4 @@
-%clear; clc;
+
 
 % main stript
 %% data readin
