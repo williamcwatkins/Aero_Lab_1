@@ -1,5 +1,12 @@
 function [] = AVM (VData_P,VData_V,speed,vspeed,PUnc,VUnc)
 
+for i = 1:length(vspeed)
+    k = 1;
+    for i = 1:500:length(vspeed)
+        vvs(k)
+    end
+end
+
 %% pitot tube plot
 Voltage = [VData_P(:,7), ones(45000,1)];
 
