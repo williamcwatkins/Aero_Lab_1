@@ -1,11 +1,11 @@
-function [ASpeed,ASpeedAv]= AirSpeed_Boundary(Data)
+function [ASpeed,ASpeedAv]= AirSpeed_Boundary(BData,a)
     %AirSpeed calculates the airspeed from the velocity voltage data
-    APressure = Data(:,1)/1000;
+    APressure = BData(:,1)/1000;
     %Convert atmospheric pressure to kilo pascal
     R = 0.287; %kg/kJ*k
-    Temp = Data(:,2);
+    Temp = BData(:,2);
     rho = APressure./(R*Temp);
-    gage_pressure = Data(:,4);
+    gage_pressure = BData(:,3+a);
     %Keep the differential pressure in pascals
     ASpeed = sqrt(2.*gage_pressure)./(rho);
     ASpeedAv = mean(ASpeed);
